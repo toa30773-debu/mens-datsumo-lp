@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="料金プランからお申し込み。ヒゲ脱毛・全身脱毛・部分脱毛から選べます。MEN'S SMOOTH。">
+  <meta name="format-detection" content="telephone=no">
+  <title>料金プランから予約 | MEN'S SMOOTH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="subpage">
+
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="./index.html" class="header__logo">MEN'S SMOOTH</a>
+
+      <a href="tel:0120000000" class="header__tel" aria-label="電話で問い合わせ">
+        <svg class="header__tel-icon" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58z"/>
+        </svg>
+        <span class="header__tel-text">
+          <span class="header__tel-label">お電話</span>
+          <span class="header__tel-num">0120-000-000</span>
+        </span>
+      </a>
+
+      <nav class="header__nav" aria-label="グローバルナビゲーション">
+        <a href="./index.html#feature" class="header__nav-link">クリニックについて</a>
+        <a href="./index.html#price" class="header__nav-link">料金</a>
+        <a href="./index.html#flow" class="header__nav-link">施術の流れ</a>
+        <a href="./index.html#faq" class="header__nav-link">よくある質問</a>
+      </nav>
+
+      <a href="./reservation-counseling.html" class="btn btn--primary header__cta is-pc">無料カウンセリング予約</a>
+      <a href="./reservation-counseling.html" class="btn btn--primary header__cta is-sp">無料予約</a>
+
+      <button type="button" class="header__hamburger js-hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span class="header__hamburger-line"></span>
+        <span class="header__hamburger-line"></span>
+        <span class="header__hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="header__sp-tel">
+    <a href="tel:0120000000">
+      <svg class="header__sp-tel-icon" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58z"/>
+      </svg>
+      0120-000-000
+    </a>
+  </div>
+
+  <div class="sp-drawer js-drawer" aria-hidden="true">
+    <nav class="sp-drawer__nav">
+      <a href="./index.html#feature" class="sp-drawer__link">クリニックについて</a>
+      <a href="./index.html#price" class="sp-drawer__link">料金</a>
+      <a href="./index.html#flow" class="sp-drawer__link">施術の流れ</a>
+      <a href="./index.html#faq" class="sp-drawer__link">よくある質問</a>
+    </nav>
+  </div>
+
+  <!-- ===== Subpage Hero ===== -->
+  <section class="subpage-hero">
+    <span class="subpage-hero__badge">料金プランから予約</span>
+    <h1 class="subpage-hero__title">プランを選んでお申し込み</h1>
+    <p class="subpage-hero__sub">ご希望のプランを選択し、フォームにご入力ください</p>
+  </section>
+
+  <!-- ===== Form ===== -->
+  <main class="subpage__main">
+    <form class="form-wrap form-wrap--two" action="thanks.html" method="post" novalidate>
+
+      <!-- Plan Select Column -->
+      <aside class="plan-select">
+        <h2 class="plan-select__title">プランを選択してください</h2>
+
+        <label class="plan-option">
+          <input type="radio" name="plan" value="hige" data-name="ヒゲ脱毛プラン" data-price="¥29,800" data-times="全6回" checked>
+          <span class="plan-option__radio" aria-hidden="true"></span>
+          <div class="plan-option__body">
+            <span class="plan-option__tag">人気No.1</span>
+            <p class="plan-option__name">ヒゲ脱毛プラン</p>
+            <p class="plan-option__desc">顔全体のヒゲ脱毛。ほぼ永久脱毛効果。</p>
+          </div>
+          <div class="plan-option__price">¥29,800<span class="plan-option__price-unit">/全6回</span></div>
+        </label>
+
+        <label class="plan-option">
+          <input type="radio" name="plan" value="zenshin" data-name="全身脱毛プラン" data-price="¥79,800" data-times="全6回">
+          <span class="plan-option__radio" aria-hidden="true"></span>
+          <div class="plan-option__body">
+            <span class="plan-option__tag plan-option__tag--blue">おすすめ</span>
+            <p class="plan-option__name">全身脱毛プラン</p>
+            <p class="plan-option__desc">顔・全身まとめてケア。お得なセット価格。</p>
+          </div>
+          <div class="plan-option__price">¥79,800<span class="plan-option__price-unit">/全6回</span></div>
+        </label>
+
+        <label class="plan-option">
+          <input type="radio" name="plan" value="bubun" data-name="部位選択プラン" data-price="¥9,800〜" data-times="1部位">
+          <span class="plan-option__radio" aria-hidden="true"></span>
+          <div class="plan-option__body">
+            <span class="plan-option__tag plan-option__tag--green">お試し</span>
+            <p class="plan-option__name">部位選択プラン</p>
+            <p class="plan-option__desc">気になる部位だけ。お試しにも最適。</p>
+          </div>
+          <div class="plan-option__price">¥9,800〜<span class="plan-option__price-unit">/1部位</span></div>
+        </label>
+
+        <p class="plan-select__note">※詳しい料金は<a href="./index.html#price">料金ページ</a>でご確認いただけます</p>
+      </aside>
+
+      <!-- Form Card Column -->
+      <div class="form-card">
+        <h2 class="form-card__title">お申し込みフォーム</h2>
+
+        <div class="selected-plan js-selected-plan">
+          <p class="selected-plan__label">選択中のプラン</p>
+          <div class="selected-plan__row">
+            <p class="selected-plan__name js-selected-plan-name">ヒゲ脱毛プラン（全6回）　¥29,800</p>
+          </div>
+        </div>
+
+        <div class="form-card__divider"></div>
+
+        <div class="form-row">
+          <label for="name" class="form-label">お名前 <span class="form-label__required">必須</span></label>
+          <input type="text" id="name" name="name" class="form-input" placeholder="例）田中 太郎" required autocomplete="name">
+        </div>
+
+        <div class="form-row">
+          <label for="tel" class="form-label">電話番号 <span class="form-label__required">必須</span></label>
+          <input type="tel" id="tel" name="tel" class="form-input" placeholder="例）090-1234-5678" required autocomplete="tel">
+        </div>
+
+        <div class="form-row">
+          <label for="email" class="form-label">メールアドレス <span class="form-label__required">必須</span></label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="例）example@email.com" required autocomplete="email">
+        </div>
+
+        <div class="form-row">
+          <label for="datetime" class="form-label">希望日時（第1希望）<span class="form-label__required">必須</span></label>
+          <input type="text" id="datetime" name="datetime" class="form-input" placeholder="例）5月20日 14:00〜" required>
+        </div>
+
+        <div class="form-row">
+          <label for="memo" class="form-label">ご要望・ご質問</label>
+          <textarea id="memo" name="memo" class="form-textarea" placeholder="施術前のご質問や不安なことがあればご記入ください"></textarea>
+        </div>
+
+        <label class="form-checkbox">
+          <input type="checkbox" name="agree" required>
+          <span class="form-checkbox__text"><a href="./privacy.html">プライバシーポリシー</a>に同意する</span>
+        </label>
+
+        <button type="submit" class="form-submit">このプランで申し込む →</button>
+        <p class="form-note">※ご予約後24時間以内に担当スタッフよりご連絡いたします</p>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__logo">MEN'S SMOOTH</div>
+        <nav class="footer__nav" aria-label="フッターナビゲーション">
+          <a href="./privacy.html" class="footer__link">プライバシーポリシー</a>
+          <a href="./tokusho.html" class="footer__link">特定商取引法</a>
+          <a href="./company.html" class="footer__link">会社情報</a>
+          <a href="./contact.html" class="footer__link">お問い合わせ</a>
+        </nav>
+      </div>
+      <div class="footer__divider"></div>
+      <p class="footer__copy">© 2025 MEN'S SMOOTH. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./js/main.js" defer></script>
+  <script>
+    // 選択プランをサマリーに反映 + URLパラメータ対応
+    (function () {
+      var radios = document.querySelectorAll('input[name="plan"]');
+      var nameEl = document.querySelector('.js-selected-plan-name');
+      function update() {
+        var checked = document.querySelector('input[name="plan"]:checked');
+        if (!checked || !nameEl) return;
+        nameEl.textContent = checked.dataset.name + '（' + checked.dataset.times + '）　' + checked.dataset.price;
+      }
+      radios.forEach(function (r) { r.addEventListener('change', update); });
+
+      // URL ?plan=xxx でプリセレクト
+      var params = new URLSearchParams(window.location.search);
+      var planParam = params.get('plan');
+      if (planParam) {
+        var target = document.querySelector('input[name="plan"][value="' + planParam + '"]');
+        if (target) {
+          target.checked = true;
+          update();
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
