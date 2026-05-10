@@ -1,109 +1,81 @@
 # MEN'S SMOOTH — メンズ脱毛クリニック LP
 
-メンズ脱毛クリニック「MEN'S SMOOTH」のランディングページ一式。  
-PC / SP レスポンシブ対応・WordPress 化を意識した構造で実装。
+男性専門医療脱毛クリニックのランディングページ一式。  
+Figma デザインをベースに HTML / CSS / JavaScript でフルスクラッチ実装。
 
 ---
 
-## 技術スタック
+## 制作物
 
-- HTML5 / CSS3 / JavaScript（バニラJS・フレームワーク不使用）
-- Web フォント：Google Fonts（Noto Sans JP / Inter）
-- ビルドツール不使用 — ファイルをブラウザで直接開けば動作
+- **LP（トップページ）**：FV〜フッターまでの全 12 セクション
+- **予約フォーム**：カウンセリング / 料金プラン / キャンペーンの 3 系統
+- **送信完了ページ**：2 種（通常 / キャンペーン）
+- **フッターリンクページ**：プライバシーポリシー / 特定商取引法 / 会社情報 / お問い合わせ
+
+計 **10 ページ**を一式制作。
 
 ---
 
-## 起動方法
+## 使用技術
 
-```bash
-python -m http.server 8000   # Python 3
-npx serve .                  # Node.js
+| カテゴリ | 内容 |
+|---|---|
+| マークアップ | HTML5（セマンティクス・アクセシビリティ対応） |
+| スタイリング | CSS3（BEM 命名 / レスポンシブ / アニメーション） |
+| スクリプト | Vanilla JavaScript（フレームワーク不使用） |
+| フォント | Google Fonts（Noto Sans JP / Inter） |
+| 画像 | WebP 変換（Node.js + sharp で自動変換） |
+| デザインツール | Figma（デザイン確認・仕様参照） |
+
+---
+
+## 実装のポイント
+
+### レスポンシブ設計
+PC（1440px）/ SP（375px）の 2 ブレークポイント対応。PC 基準で記述し `@media (max-width: 768px)` で SP 値を上書きする設計。
+
+### CTA 導線設計
+ユーザーの購買心理フェーズ（認知 → 共感 → 比較 → 確信 → 行動）に沿ってセクションを構成。CTA は「無料カウンセリング」「¥500 キャンペーン」「料金プラン直申込」の 3 系統に整理し、それぞれ独立した遷移フローを実装。
+
+### CSS アニメーション
+FV 背景にグラデーション移動・グリッドドリフト・光の帯・グロー浮遊の 4 種を重ね、動きのある高品質な演出を純粋な CSS のみで実装。`prefers-reduced-motion` によるアクセシビリティ対応も実施。
+
+### マーキーアニメーション
+お悩みセクションの背景に 3 行の無限スクロールテキストを配置。コンテンツを 2 倍に複製して `translateX(-50%)` にループさせるシームレスマーキーを CSS のみで実装。
+
+### ヘッダーレイアウト
+`<nav>` に `display: contents` を適用し、ナビリンクを親 flex コンテナの直接アイテムとして展開。nav 要素を挟まずロゴ〜電話〜ナビ〜CTA が一列に並ぶ柔軟なレイアウトを実現。
+
+### 画像最適化
+Node.js（sharp）を使い全 20 枚の JPEG を WebP（quality 82）に一括変換。**平均 -93% のファイルサイズ削減**を達成（最大 2,468KB → 111KB）。
+
+### WordPress 移行を意識した構造
+各セクションを `<section class="セクション名">` でブロック化し、ヘッダー / フッター / 繰り返し要素は PHP テンプレートへの分割を想定したマークアップ。
+
+---
+
+## ページ・ファイル構成
+
 ```
-
-`http://localhost:8000/` にアクセス。フォーム送信後の遷移確認にはサーバ経由が必要。
-
----
-
-## ファイル構成
-
-```
-mens-datsumo-lp/
-├── index.html                    # トップ LP（全セクション）
+├── index.html                    # トップ LP（12 セクション）
 ├── reservation-counseling.html   # 無料カウンセリング予約
-├── reservation-plan.html         # 料金プラン選択 + 予約
+├── reservation-plan.html         # 料金プラン予約（URL パラメータでプリセレクト）
 ├── reservation-campaign.html     # ¥500 キャンペーン予約
-├── thanks.html                   # 送信完了（カウンセリング・プラン共通）
-├── thanks-campaign.html          # 送信完了（¥500 キャンペーン専用）
-├── privacy.html                  # プライバシーポリシー
-├── tokusho.html                  # 特定商取引法に基づく表記
-├── company.html                  # 会社情報・店舗一覧
-├── contact.html                  # お問い合わせフォーム
+├── thanks.html / thanks-campaign.html  # 送信完了
+├── privacy.html / tokusho.html / company.html / contact.html
 ├── css/styles.css                # 全ページ共通スタイル（BEM）
-├── js/main.js                    # 全ページ共通スクリプト
-└── img/                          # 画像（.webp 使用中・.jpg はバックアップ）
+├── js/main.js                    # ハンバーガー / FAQ / スクロール / 追従 CTA
+└── img/                          # WebP 画像（元 .jpg バックアップ保持）
 ```
 
 ---
 
-## CTA リンク設計
+## 工夫した点
 
-| ボタン | 遷移先 |
-|---|---|
-| 無料カウンセリング予約 | `reservation-counseling.html` |
-| このプランで決定する | `reservation-plan.html?plan={hige/zenshin/bubun}` |
-| ¥500 キャンペーンを予約する | `reservation-campaign.html` |
-| カウンセリング・プラン 送信 | `thanks.html` |
-| ¥500 キャンペーン 送信 | `thanks-campaign.html` |
-
-`reservation-plan.html` は `?plan=hige / zenshin / bubun` でプランをプリセレクトできる。
-
----
-
-## レスポンシブ仕様
-
-- **PC**：1440px 基準、`max-width: 1440px` で中央配置
-- **SP**：`@media (max-width: 768px)` で上書き、375px 基準
-- ヘッダーの `<nav>` に `display: contents` を使い、nav の子 `<a>` が flex アイテムとして並ぶ設計。`is-pc` クラスを nav や tel リンクに付けると `display: revert` で壊れるため付けないこと
-
----
-
-## JavaScript（js/main.js）
-
-| 機能 | 概要 |
-|---|---|
-| SP ハンバーガーメニュー | タップで開閉。ドロワー内リンクタップで自動閉鎖 |
-| FAQ アコーディオン | `.js-faq-question` クリックで `is-open` 切り替え |
-| スムーススクロール | ヘッダー高さ（SP: 86px / PC: 80px）を考慮してスクロール |
-| 追従 CTA | SP 限定。FV 通過後に表示、Footer 到達で非表示 |
-
----
-
-## 画像
-
-- 形式：**WebP**（quality 82 で変換済み）、元の `.jpg` はバックアップとして保持
-- 変換前後：平均 **-93%**（例：`fv-hero.jpg` 2,468KB → `fv-hero.webp` 111KB）
-- 同名の `.webp` ファイルを差し替えれば HTML 修正不要
-
----
-
-## WordPress 化を想定した構成
-
-- 各セクションを `<section class="セクション名">` でブロック化 → `section-*.php` に分割しやすい
-- ヘッダー / フッターは `header.php` / `footer.php` に分離可能
-- FAQ・店舗・料金プランなど繰り返し要素は `foreach` ループ化できる規則的なマークアップ
-- 画像パスは `./img/xxx.webp` → WordPress 化時は `get_template_directory_uri()` に置換
-
----
-
-## 本番前に要対応
-
-| 項目 | 内容 |
-|---|---|
-| TEL / メール / 住所 | すべてダミー。実際の情報に置換 |
-| 店舗 Google Maps リンク | 仮 URL。実際の座標に変更 |
-| LINE 友だち追加リンク | `href="#"` のまま。実際の URL に変更 |
-| フォーム送信処理 | 現状はフロントのみ（`action="thanks.html"`）。本番では PHP / CF7 等が必要 |
-| `.jpg` バックアップ削除 | 不要であれば `img/*.jpg` を削除してよい |
+- ファーストビューは画像なしでリッチに見せるため、CSS グラデーション + マルチレイヤーアニメーションで構成
+- SP のみ画面下部に追従する CTA バーを実装（FV 通過後に出現、フッター到達で非表示）
+- フッター / ヘッダーのリンクホバー時に中央から広がるシアンのアンダーラインアニメーションを実装
+- 料金プランページは URL の `?plan=` パラメータを読み取り、該当プランをプリセレクトした状態でフォームを表示
 
 ---
 
