@@ -79,7 +79,7 @@
 
       <div class="thanks-steps">
         <p class="thanks-steps__label">次のステップ</p>
-        <p class="thanks-steps__list">① ご確認の連絡（電話 or メール）→ ② 来院日時の確定 → ③ 無料カウンセリング</p>
+        <p class="thanks-steps__list js-thanks-steps">① ご確認の連絡（電話 or メール）→ ② 来院日時の確定 → ③ 無料カウンセリング</p>
       </div>
 
       <div class="thanks-line">
@@ -113,5 +113,11 @@
   </footer>
 
   <script src="./js/main.js" defer></script>
+  <script>
+    if (new URLSearchParams(location.search).get('from') === 'plan') {
+      document.querySelector('.js-thanks-steps').textContent =
+        '① ご確認の連絡（電話 or メール）→ ② 来院日時の確定 → ③ ご来院・施術スタート';
+    }
+  </script>
 </body>
 </html>

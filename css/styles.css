@@ -142,11 +142,6 @@ ol {
   color: #0a0a0f;
 }
 
-.btn--dark {
-  background-color: #0d1b2a;
-  color: #ffffff;
-}
-
 .btn--lg {
   padding: 22px 48px;
   font-size: 18px;
@@ -163,12 +158,6 @@ ol {
   padding: 14px 24px;
   font-size: 14px;
   border-radius: 10px;
-}
-
-.btn--sm {
-  padding: 12px 24px;
-  font-size: 13px;
-  border-radius: 6px;
 }
 
 .btn--block {
@@ -723,7 +712,7 @@ ol {
 .campaign {
   background-color: #0a0a0f;
   position: relative;
-  padding: 36px 0 36px;
+  padding: 36px 0;
   text-align: center;
 }
 
@@ -1305,7 +1294,7 @@ ol {
   position: absolute;
   top: 11px;
   left: 23px;
-  font-family: "Inter", serif;
+  font-family: "Inter", sans-serif;
   font-size: 72px;
   font-weight: 700;
   color: rgba(21, 101, 192, 0.6);
@@ -2182,14 +2171,6 @@ ol {
   color: #1f2438;
 }
 
-.selected-plan__change {
-  font-size: 12px;
-  color: #2e78f2;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
 .form-row {
   margin-bottom: 24px;
 }
@@ -2238,6 +2219,23 @@ ol {
   border-color: #1565c0;
   background-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1);
+}
+
+.form-input.is-error,
+.form-textarea.is-error {
+  border-color: #eb2e2e;
+  background-color: #fff8f8;
+  box-shadow: 0 0 0 3px rgba(235, 46, 46, 0.1);
+}
+
+.form-error-msg {
+  font-size: 12px;
+  color: #eb2e2e;
+  margin-top: 6px;
+}
+
+.form-checkbox.is-error .form-checkbox__text {
+  color: #eb2e2e;
 }
 
 .form-textarea {

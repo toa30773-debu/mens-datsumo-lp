@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -73,10 +73,11 @@
 
   <!-- ===== Form ===== -->
   <main class="subpage__main">
-    <form class="form-wrap form-wrap--two" action="thanks.html" method="post" novalidate>
+    <form class="form-wrap form-wrap--two" action="thanks.html" method="get" novalidate>
+      <input type="hidden" name="from" value="plan">
 
       <!-- Plan Select Column -->
-      <aside class="plan-select">
+      <div class="plan-select">
         <h2 class="plan-select__title">プランを選択してください</h2>
 
         <label class="plan-option">
@@ -113,7 +114,7 @@
         </label>
 
         <p class="plan-select__note">※詳しい料金は<a href="./index.html#price">料金ページ</a>でご確認いただけます</p>
-      </aside>
+      </div>
 
       <!-- Form Card Column -->
       <div class="form-card">

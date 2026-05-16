@@ -1,82 +1,169 @@
-# MEN'S SMOOTH — メンズ脱毛クリニック LP
+# MEN'S SMOOTH
 
-男性専門医療脱毛クリニックのランディングページ一式。  
-Figma デザインをベースに HTML / CSS / JavaScript でフルスクラッチ実装。
+男性専門医療脱毛クリニックのランディングページ一式。3系統のCTA導線設計と、純粋なCSSアニメーションによる高品質なFV演出を実装したポートフォリオ作品。
 
 ---
 
-## 制作物
+## デモ
 
-- **LP（トップページ）**：FV〜フッターまでの全 12 セクション
-- **予約フォーム**：カウンセリング / 料金プラン / キャンペーンの 3 系統
-- **送信完了ページ**：2 種（通常 / キャンペーン）
-- **フッターリンクページ**：プライバシーポリシー / 特定商取引法 / 会社情報 / お問い合わせ
+🔗 **[ライブデモを見る](https://toa30773-debu.github.io/mens-datsumo-lp/)**
 
-計 **10 ページ**を一式制作。
+**LP（トップページ）**
+| PC版（1440px） | SP版（375px） |
+|---|---|
+| ![LP PC版](images/ss_lp_pc.png) | ![LP SP版](images/ss_lp_sp.png) |
+
+**無料カウンセリング予約ページ**
+| PC版 | SP版 |
+|---|---|
+| ![カウンセリング予約 PC版](images/ss_counseling_pc.png) | ![カウンセリング予約 SP版](images/ss_counseling_sp.png) |
+
+**料金プラン予約ページ**
+| PC版 | SP版 |
+|---|---|
+| ![料金プラン予約 PC版](images/ss_plan_pc.png) | ![料金プラン予約 SP版](images/ss_plan_sp.png) |
+
+**¥500キャンペーン予約ページ**
+| PC版 | SP版 |
+|---|---|
+| ![キャンペーン予約 PC版](images/ss_campaign_pc.png) | ![キャンペーン予約 SP版](images/ss_campaign_sp.png) |
+
+**カウンセリング完了ページ**
+| PC版 | SP版 |
+|---|---|
+| ![カウンセリング完了 PC版](images/ss_thanks_counseling_pc.png) | ![カウンセリング完了 SP版](images/ss_thanks_counseling_sp.png) |
+
+**料金プラン完了ページ**
+| PC版 | SP版 |
+|---|---|
+| ![料金プラン完了 PC版](images/ss_thanks_plan_pc.png) | ![料金プラン完了 SP版](images/ss_thanks_plan_sp.png) |
+
+**¥500キャンペーン完了ページ**
+| PC版 | SP版 |
+|---|---|
+| ![キャンペーン完了 PC版](images/ss_thanks_campaign_pc.png) | ![キャンペーン完了 SP版](images/ss_thanks_campaign_sp.png) |
+
+---
+
+## 制作の背景・コンセプト
+
+メンズ脱毛クリニックのターゲット（20〜40代男性）に合わせ、「信頼感・清潔感・行動喚起」を軸に設計。予約導線を3系統に分けることで、ユーザーの検討フェーズに応じたCTA設計を実現しました。
+
+- **購買心理フェーズに沿ったセクション構成** — 認知 → 共感 → 比較 → 確信 → 行動
+- **3系統のCTA導線** — 無料カウンセリング / ¥500キャンペーン / 料金プラン直申込
+- **WordPress移行を意識した構造** — セクションブロック化・ヘッダー・フッターの分離想定
+
+---
+
+## 制作フロー
+
+```
+仕様書・デザインシステム作成（.md）
+  ↓
+Figmaでデザイン（Claude Codeを使用）
+  ↓
+レビュー・修正（複数回）
+  ↓
+コーディング（Claude Codeを使用）
+  ↓
+画像最適化（WebP変換）
+  ↓
+ブラウザ確認・調整
+  ↓
+GitHub Pages 公開
+```
+
+> **仕様書.mdについて：** リポジトリ内の `project-spec.md` / `design-rules.md` / `coding-rules.md` / `pages-spec.md` は制作前に作成したFigmaデザイン・コーディング用の仕様書です。実際のコードはレビューと修正を経て仕様書から改善されている箇所があります。
+
+> **AI活用について：** デザイン生成・コーディングに Claude Code（Anthropic）を活用しています。プロンプト設計・レビュー・修正指示はすべて自身で行っています。
+
+---
+
+## ページ構成
+
+| ページ | ファイル | 内容 |
+|---|---|---|
+| トップ LP | `index.html` | FV〜フッターまでの全12セクション |
+| 無料カウンセリング予約 | `reservation-counseling.html` | 無料カウンセリング申込フォーム |
+| 料金プラン予約 | `reservation-plan.html` | プラン直申込（URLパラメータでプリセレクト）|
+| ¥500キャンペーン予約 | `reservation-campaign.html` | キャンペーン申込フォーム |
+| 予約完了 | `thanks.html` | 無料・料金プランの完了ページ（`?from=plan` で表示切り替え）|
+| キャンペーン完了 | `thanks-campaign.html` | ¥500キャンペーン専用完了ページ |
+| プライバシーポリシー | `privacy.html` | — |
+| 特定商取引法 | `tokusho.html` | — |
+| 会社情報 | `company.html` | — |
+| お問い合わせ | `contact.html` | — |
+
+計 **10ページ**を一式制作。
+
+---
+
+## こだわりポイント
+
+**デザイン・演出**
+- FV背景は画像なし。CSSグラデーション + グリッドドリフト・光の帯・グロー浮遊の4種アニメーションを重ねてリッチに演出
+- お悩みセクションに3行の無限スクロールテキスト（マーキー）をCSS単体で実装
+- `prefers-reduced-motion` によるアクセシビリティ対応
+
+**コーディング**
+- BEM命名規則の徹底
+- PCファースト設計（ブレークポイント: 768px）
+- `<nav>` に `display: contents` を適用し、ロゴ〜ナビ〜CTAが一列に並ぶ柔軟なヘッダーレイアウトを実現
+- URLの `?plan=` パラメータを読み取り、料金プランをプリセレクトした状態でフォームを表示
+- SP専用の画面下部追従CTAバーを実装（FV通過後に出現・フッター到達で非表示）
+
+**画像最適化**
+- Node.js（sharp）で全20枚のJPEGをWebP（quality 82）に一括変換
+- 平均 **-93%** のファイルサイズ削減（最大 2,468KB → 111KB）
 
 ---
 
 ## 使用技術
 
-| カテゴリ | 内容 |
+| 技術 | 用途 |
 |---|---|
-| マークアップ | HTML5（セマンティクス・アクセシビリティ対応） |
-| スタイリング | CSS3（BEM 命名 / レスポンシブ / アニメーション） |
-| スクリプト | Vanilla JavaScript（フレームワーク不使用） |
-| フォント | Google Fonts（Noto Sans JP / Inter） |
-| 画像 | WebP 変換（Node.js + sharp で自動変換） |
-| デザインツール | Figma（デザイン確認・仕様参照） |
+| HTML5 | セマンティクス・アクセシビリティ対応 |
+| CSS3 | BEM / レスポンシブ / CSSアニメーション |
+| Vanilla JavaScript | ハンバーガー / FAQ / スクロール / 追従CTA |
+| Google Fonts | Noto Sans JP / Inter |
+| Node.js（sharp） | WebP一括変換（平均 -93% 削減） |
+| Figma | UIデザイン（PC・SPフレーム） |
+| Claude Code | デザイン生成・コーディング支援 |
+| GitHub Pages | ホスティング |
 
 ---
 
-## 実装のポイント
-
-### レスポンシブ設計
-PC（1440px）/ SP（375px）の 2 ブレークポイント対応。PC 基準で記述し `@media (max-width: 768px)` で SP 値を上書きする設計。
-
-### CTA 導線設計
-ユーザーの購買心理フェーズ（認知 → 共感 → 比較 → 確信 → 行動）に沿ってセクションを構成。CTA は「無料カウンセリング」「¥500 キャンペーン」「料金プラン直申込」の 3 系統に整理し、それぞれ独立した遷移フローを実装。
-
-### CSS アニメーション
-FV 背景にグラデーション移動・グリッドドリフト・光の帯・グロー浮遊の 4 種を重ね、動きのある高品質な演出を純粋な CSS のみで実装。`prefers-reduced-motion` によるアクセシビリティ対応も実施。
-
-### マーキーアニメーション
-お悩みセクションの背景に 3 行の無限スクロールテキストを配置。コンテンツを 2 倍に複製して `translateX(-50%)` にループさせるシームレスマーキーを CSS のみで実装。
-
-### ヘッダーレイアウト
-`<nav>` に `display: contents` を適用し、ナビリンクを親 flex コンテナの直接アイテムとして展開。nav 要素を挟まずロゴ〜電話〜ナビ〜CTA が一列に並ぶ柔軟なレイアウトを実現。
-
-### 画像最適化
-Node.js（sharp）を使い全 20 枚の JPEG を WebP（quality 82）に一括変換。**平均 -93% のファイルサイズ削減**を達成（最大 2,468KB → 111KB）。
-
-### WordPress 移行を意識した構造
-各セクションを `<section class="セクション名">` でブロック化し、ヘッダー / フッター / 繰り返し要素は PHP テンプレートへの分割を想定したマークアップ。
-
----
-
-## ページ・ファイル構成
+## ファイル構成
 
 ```
-├── index.html                    # トップ LP（12 セクション）
-├── reservation-counseling.html   # 無料カウンセリング予約
-├── reservation-plan.html         # 料金プラン予約（URL パラメータでプリセレクト）
-├── reservation-campaign.html     # ¥500 キャンペーン予約
-├── thanks.html / thanks-campaign.html  # 送信完了
-├── privacy.html / tokusho.html / company.html / contact.html
-├── css/styles.css                # 全ページ共通スタイル（BEM）
-├── js/main.js                    # ハンバーガー / FAQ / スクロール / 追従 CTA
-└── img/                          # WebP 画像（元 .jpg バックアップ保持）
+mens-datsumo-lp/
+  ├── index.html
+  ├── reservation-counseling.html
+  ├── reservation-plan.html
+  ├── reservation-campaign.html
+  ├── thanks.html
+  ├── thanks-campaign.html
+  ├── privacy.html
+  ├── tokusho.html
+  ├── company.html
+  ├── contact.html
+  ├── css/
+  │   └── styles.css
+  ├── js/
+  │   └── main.js
+  └── images/
 ```
 
 ---
 
-## 工夫した点
+## WordPress対応について
 
-- ファーストビューは画像なしでリッチに見せるため、CSS グラデーション + マルチレイヤーアニメーションで構成
-- SP のみ画面下部に追従する CTA バーを実装（FV 通過後に出現、フッター到達で非表示）
-- フッター / ヘッダーのリンクホバー時に中央から広がるシアンのアンダーラインアニメーションを実装
-- 料金プランページは URL の `?plan=` パラメータを読み取り、該当プランをプリセレクトした状態でフォームを表示
+将来的なWordPress化を前提とした構造で実装。
+
+- ヘッダー・フッター → `header.php` / `footer.php` に即座に分離可能
+- 各セクションをブロック化 → Gutenbergブロックへの移行を想定
+- お問い合わせフォーム → Contact Form 7に置き換え可能な構造
 
 ---
 
-(c) 2025 MEN'S SMOOTH
+*© 2026 Portfolio Work by toa*
