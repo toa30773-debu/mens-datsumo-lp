@@ -6,7 +6,7 @@
 
 ## デモ
 
-🔗 **[ライブデモを見る](https://toa30773-debu.github.io/mens-datsumo-lp/)**
+🔗 **[ライブデモを見る](https://toa30773.github.io/mens-datsumo-lp/)**
 
 **LP（トップページ）**
 | PC版（1440px） | SP版（375px） |
@@ -166,4 +166,4 @@ mens-datsumo-lp/
 
 ---
 
-*© 2026 Portfolio Work by toa*
+*Portfolio Work*
