@@ -80,6 +80,7 @@
           <span class="fv__label">MEN'S HAIR REMOVAL CLINIC</span>
 
           <div class="fv__heading-wrap">
+            <!-- is-pc / is-sp で改行位置を出し分け。同一テキストを2つ用意するのが目的 -->
             <h1 class="fv__heading"><span class="is-pc">脱毛で、清潔感を<br>手に入れろ。</span><span class="is-sp">脱毛で、<br>清潔感を<br>手に入れろ。</span></h1>
           </div>
 
@@ -91,6 +92,10 @@
           <p class="fv__notes is-pc">✓ 完全無料　✓ キャンセルOK　✓ しつこい勧誘なし</p>
         </div>
 
+        <!--
+          FVヒーロー画像：LCP対象のため loading="eager" fetchpriority="high" でブラウザの優先読み込みを指示。
+          <picture> でSP用に小さい画像を出し分け（通信量削減）。
+        -->
         <figure class="fv__hero">
           <picture>
             <source media="(max-width: 768px)" srcset="./images/fv-hero-sp.webp">
@@ -114,6 +119,7 @@
             <div class="fv__stat-num">全国3院</div>
             <div class="fv__stat-label">店舗数</div>
           </div>
+          <!-- fv__stat--hide-sp：SP では3項目に絞るためこの項目だけ非表示 -->
           <div class="fv__stat fv__stat--hide-sp">
             <div class="fv__stat-num">最短当日</div>
             <div class="fv__stat-label">予約可能</div>
@@ -133,7 +139,12 @@
 
     <!-- ===== Nayami ===== -->
     <section class="section nayami" id="nayami">
-      <!-- 背景マーキー(装飾) -->
+      <!--
+        背景マーキー（装飾）— aria-hidden="true" でスクリーンリーダーには読まれない。
+        各 .nayami__marquee-track 内のテキストは同一内容を2セット並べている。
+        CSS の translateX(0→-50%) アニメーションで1セット分移動すると
+        見た目上は最初の位置と同じになるため、途切れずループし続ける。
+      -->
       <div class="nayami__marquee" aria-hidden="true">
         <div class="nayami__marquee-row nayami__marquee-row--1">
           <div class="nayami__marquee-track">
@@ -605,7 +616,7 @@
     </div>
   </footer>
 
-  <!-- ===== Floating CTA (SP only) ===== -->
+  <!-- SP限定の追従CTA。js-floating-cta を JS が監視し、FV通過後に is-visible を付与して表示する -->
   <div class="floating-cta js-floating-cta" aria-hidden="true">
     <a href="./reservation-counseling.html" class="floating-cta__btn">無料カウンセリングを予約する →</a>
   </div>

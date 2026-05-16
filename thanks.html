@@ -114,6 +114,8 @@
 
   <script src="./js/main.js" defer></script>
   <script>
+    // ?from=plan のとき（料金プラン予約経由）はステップ文言を変更する
+    // カウンセリング予約はデフォルトテキストをそのまま使用
     if (new URLSearchParams(location.search).get('from') === 'plan') {
       document.querySelector('.js-thanks-steps').textContent =
         '① ご確認の連絡（電話 or メール）→ ② 来院日時の確定 → ③ ご来院・施術スタート';

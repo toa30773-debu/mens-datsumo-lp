@@ -58,6 +58,7 @@ ol {
 }
 
 /* ---------- 1. Common Layout ---------- */
+/* 全セクション共通のコンテナ。max-width: 1440px で中央揃え */
 .section {
   width: 100%;
 }
@@ -228,9 +229,14 @@ ol {
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0;
-  font-feature-settings: "tnum";
+  font-feature-settings: "tnum"; /* 電話番号を等幅数字で表示（桁ズレ防止）*/
 }
 
+/*
+ * display: contents で nav 要素自体をレイアウトから外し、
+ * 子の <a> が直接 header__inner の flex アイテムになる設計。
+ * ※ nav や .header__tel に is-pc を付けると display: revert で上書きされるため注意。
+ */
 .header__nav {
   display: contents;
 }
@@ -347,7 +353,10 @@ ol {
   fill: #ff6b2b;
 }
 
-/* SPメニューパネル（ドロワー）— SPの電話ストリップ下から展開 */
+/*
+ * SPメニューパネル（ドロワー）— SPの電話ストリップ下から展開
+ * top: 76px = ヘッダー50px + 電話ストリップ26px
+ */
 .sp-drawer {
   display: none;
   position: fixed;
@@ -382,7 +391,12 @@ ol {
   margin-top: 16px;
 }
 
-/* -------- FV (PC: 780px絶対配置 / SP: 縦flex) -------- */
+/*
+ * FV（ファーストビュー）
+ * PC: コンテンツ・画像を absolute で配置（左右2カラム風）
+ * SP: flex で縦積みに切り替え（下部SPメディアクエリ参照）
+ * isolation: isolate で子要素のz-indexスタッキングコンテキストを独立させる
+ */
 .fv {
   position: relative;
   background:
@@ -526,6 +540,7 @@ ol {
   }
 }
 
+/* アクセシビリティ：動きを減らす設定をONにしているユーザーには全アニメを停止 */
 @media (prefers-reduced-motion: reduce) {
   .fv,
   .fv::before,
@@ -661,7 +676,13 @@ ol {
   background-color: transparent;
 }
 
-/* 背景帯を viewport 全幅に拡張 */
+/*
+ * 背景帯を viewport 全幅に拡張するテクニック。
+ * コンテナ内に収まる要素から全幅の帯を作る定番手法：
+ *   left: 50%  → 親の中央に移動
+ *   width: 100vw → ビューポート幅に拡張
+ *   transform: translateX(-50%) → 左にずらして左端を画面端に合わせる
+ */
 .fv__stats::before {
   content: "";
   position: absolute;
@@ -776,7 +797,12 @@ ol {
   overflow: hidden;
 }
 
-/* ---- 背景マーキー(装飾テキスト) ---- */
+/*
+ * 背景マーキー（装飾テキスト）— シームレスループの仕組み
+ * HTML側で同じ内容の <span> を2セット並べ、translateX(0→-50%) で流す。
+ * -50% で1セット分だけ移動したとき、見た目上は最初の状態と同じになるため
+ * animation が繰り返されても途切れなく見える。
+ */
 .nayami__marquee {
   position: absolute;
   inset: 0;
@@ -1385,6 +1411,13 @@ ol {
 }
 
 /* ---------- 12. FAQ ---------- */
+/*
+ * アコーディオン開閉は max-height トランジションで実装。
+ * height: auto は transition できないため max-height で代替する。
+ * JS が .faq-item に is-open を付けると 0 → 400px へ変化してパネルが開く。
+ * 400px は想定される最大コンテンツ高さ。大きすぎると閉じるときの速度感が
+ * コンテンツ高さと合わなくなるため、実際の高さに近い値を設定しておくこと。
+ */
 .faq {
   background-color: #f2f6fb;
 }
@@ -1692,6 +1725,12 @@ ol {
 }
 
 /* ---------- 16. Floating CTA (SP only) ---------- */
+/*
+ * PC では display: none のまま。SP メディアクエリで display: block に変更。
+ * 初期状態は translateY(100%) で画面外（下）に隠れており、
+ * JS が is-visible を付けると translateY(0) へ遷移して画面内にスライドアップする。
+ * FV 通過後〜フッター到達前のみ表示（JS の initFloatingCta 参照）。
+ */
 .floating-cta {
   display: none;
   position: fixed;
@@ -1969,6 +2008,7 @@ ol {
   gap: 32px;
 }
 
+/* 料金プラン予約ページ専用の2カラムレイアウト。左: プラン選択 / 右: 入力フォーム */
 .form-wrap--two {
   max-width: 1220px;
   display: grid;

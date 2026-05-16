@@ -73,6 +73,12 @@
 
   <!-- ===== Form ===== -->
   <main class="subpage__main">
+    <!--
+      method="get"：静的サーバーが POST を受け付けないため GET を使用。
+      novalidate：JS 側バリデーション（main.js）に委ねるためブラウザ標準UIを無効化。
+      hidden "from=plan"：GET フォームは action の URL クエリを上書きするため、
+      ?plan=xxx ではなく hidden input で from=plan を送信する。thanks.html 側で参照。
+    -->
     <form class="form-wrap form-wrap--two" action="thanks.html" method="get" novalidate>
       <input type="hidden" name="from" value="plan">
 
@@ -80,6 +86,7 @@
       <div class="plan-select">
         <h2 class="plan-select__title">プランを選択してください</h2>
 
+        <!-- data-name/price/times：JS が「選択中プラン」サマリー表示に使用（inline script 参照）-->
         <label class="plan-option">
           <input type="radio" name="plan" value="hige" data-name="ヒゲ脱毛プラン" data-price="¥29,800" data-times="全6回" checked>
           <span class="plan-option__radio" aria-hidden="true"></span>

@@ -75,6 +75,11 @@
   <!-- ===== Form ===== -->
   <main class="subpage__main">
     <div class="form-wrap">
+      <!--
+        method="get"：静的サーバー（Python http.server 等）は POST を受け付けないため GET を使用。
+        novalidate：ブラウザ標準UIはデザイン制御不可なため無効化し、JS側でバリデーションを実装。
+        required 属性は JS の validateForm が読み取る際のマーカーとして使用。
+      -->
       <form class="form-card" action="thanks.html" method="get" novalidate>
         <h2 class="form-card__title">ご予約フォーム</h2>
         <p class="form-card__sub">下記フォームにご入力の上、送信ください。</p>
